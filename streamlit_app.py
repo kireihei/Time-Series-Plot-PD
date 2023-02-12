@@ -15,6 +15,22 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
+st.title("Time Series Plot of Probability of Default")  # set the title for the app
+
+
+# load data file
+def load_data():
+    data = pd.read_csv("PDdata.csv")
+    data.loc[:, "DataDate"] = pd.to_datetime(data.loc[:, "DataDate"])
+    return data
+
+
+# Create a text element and let the reader know the data is loading.
+data_load_state = st.text('Loading data...')
+# Load data into the dataframe.
+df = load_data()
+# Notify the reader that the data was successfully loaded.
+data_load_state.text('Loading data...done!')
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
