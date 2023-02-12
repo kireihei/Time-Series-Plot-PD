@@ -29,8 +29,8 @@ df = load_data()
 # Notify the reader that the data was successfully loaded.
 data_load_state.text('Loading data...done!')
 
-company_ID = st.select_slider('Select a Company ID',
-                              options=list(df.loc[:, "CompanyID"].unique()))
+company_ID = st.selectbox('Select a Company ID',
+                          options=list(df.loc[:, "CompanyID"].unique()))
 st.write('The selected company is', company_ID)
 
 
