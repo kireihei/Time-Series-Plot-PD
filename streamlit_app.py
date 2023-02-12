@@ -7,7 +7,6 @@ import streamlit as st
 st.title("Time Series Plot of Probability of Default")  # set the title for the app
 
 """
-## Welcome to Streamlit!
 `/streamlit_app.py` 
 
 If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
@@ -29,10 +28,14 @@ df = load_data()
 # Notify the reader that the data was successfully loaded.
 data_load_state.text('Loading data...done!')
 
+# select box
 company_ID = st.selectbox('Select a Company ID',
                           options=list(df.loc[:, "CompanyID"].unique()))
 st.write('The selected company is', company_ID)
 
+# line chart
+selected_df = df[df.loc[:, "CompanyID"] == company_ID]
+st.line_chart(selected_df, x="DataDate", y="PD")
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
