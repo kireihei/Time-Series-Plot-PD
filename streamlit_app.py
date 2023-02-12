@@ -4,6 +4,9 @@ import math
 import pandas as pd
 import streamlit as st
 
+"""
+If you have any questions, please refer to {documentation}(https://docs.streamlit.io/).
+"""
 
 # load data file
 def load_data():
