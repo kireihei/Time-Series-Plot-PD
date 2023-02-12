@@ -4,15 +4,6 @@ import math
 import pandas as pd
 import streamlit as st
 
-st.title("Time Series Plot of Probability of Default")  # set the title for the app
-
-"""
-`/streamlit_app.py` 
-
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
-"""
-
 
 # load data file
 def load_data():
@@ -20,6 +11,9 @@ def load_data():
     data.loc[:, "DataDate"] = pd.to_datetime(data.loc[:, "DataDate"])
     return data
 
+
+# set the title for the app
+st.title("Time Series Plot of Probability of Default")  
 
 # Create a text element and let the reader know the data is loading.
 data_load_state = st.text('Loading data...')
